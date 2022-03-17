@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!-- Login Event -->
+    <event name="customer_login">
+        <observer name="namespace_customerlogin_observer_frontend_customer_login_customer_login" 
+                  instance="ISN\Action\Observer\Frontend\Customer\LoginObserver" />
+    </event>
+    <!-- Logout Event -->
+    <event name="customer_logout">
+        <observer name="ISN_Action_customer_logout" 
+                  instance="ISN\Action\Observer\Frontend\Customer\LogOutObserver" />
+    </event>
+    <!-- Add To Cart Event -->
+     <event name="checkout_cart_product_add_after">
+        <observer name="add_to_cart_event" 
+                  instance="ISN\Action\Observer\Frontend\Customer\AddToCartObserver" />
+    </event>
+    <!-- Place Order Event -->
+     <event name="checkout_onepage_controller_success_action">
+        <observer name="place_order_event_customs" 
+                  instance="ISN\Action\Observer\Frontend\Customer\PlaceOrderObserver" />
+    </event> 
+    <!-- Invoice Billing Event -->
+    <event name="sales_order_invoice_save_after">
+        <observer name="invoice_event" 
+                  instance="ISN\Action\Observer\Frontend\Customer\InvoiceBillingObserver" />
+    </event>
+    <!-- Customer Register Event --> 
+     <event name="customer_register_success">
+        <observer name="customerregister" 
+                  instance="ISN\Action\Observer\Frontend\Customer\RegisterObserver" />
+    </event>
+    <!-- Customer Account Edit Event --> 
+     <event name="customer_account_edited">
+        <observer name="customer_account_edit_event" 
+                  instance="ISN\Action\Observer\Frontend\Customer\AccountEditObserver"/>
+    </event>
+    <!-- Add to Wishlist Event -->
+    <event name="wishlist_add_product">
+        <observer name="addtowishlist" 
+                  instance="ISN\Action\Observer\Frontend\Customer\AddToWishlistObserver" />
+    </event>
+    
+</config>
