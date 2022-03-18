@@ -1,13 +1,7 @@
 define(
     [
-    'ko',
-    'uiComponent',
-    'jquery',
-    'jquery-ui-modules/widget',
-    'mage/url','domReady!' 
-  ],
-    function (ko, Component,$,url) 
-   {
+    'ko','uiComponent','jquery','jquery-ui-modules/widget','mage/url','domReady!' 
+  ],function (ko, Component,$,url) {
     "use strict";
     return Component.extend({  
     defaults: 
@@ -17,10 +11,20 @@ define(
     },
     
     initObservable: function () {
-        this._super()
-        .observe({
-            isRegisterNewsletter: ko.observable(true)                        
-        });
+      
+        var simple_cookie = $.cookie('CheckBox'); 
+        if(simple_cookie=="true"){
+            this._super()
+            .observe({
+                isRegisterNewsletter: ko.observable(simple_cookie)                        
+            });
+        }
+        else{
+            this._super()
+            .observe({
+                isRegisterNewsletter: ko.observable(false)                        
+            });
+        }
         this.isRegisterNewsletter.subscribe(function (newValue) {
             if(newValue){
                 $.cookie('CheckBox', true );
