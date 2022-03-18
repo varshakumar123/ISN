@@ -4,7 +4,7 @@ define(
     'uiComponent',
     'jquery',
     'jquery-ui-modules/widget',
-    'mage/url' 
+    'mage/url','domReady!' 
   ],
     function (ko, Component,$,url) 
    {
@@ -15,6 +15,7 @@ define(
     cookieMessages: [],
     template: 'ISN_CheckBox/checkboxtemplate'
     },
+    
     initObservable: function () {
         this._super()
         .observe({
@@ -29,7 +30,6 @@ define(
                     $(document).ready(function() {
                         var linkUrl = url.build('check/index/index');
                         console.log(linkUrl);
-                        
                         $.ajax({
                             url: linkUrl,
                             type: 'POST',

@@ -9,9 +9,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 {
 	public function upgrade( SchemaSetupInterface $setup, ModuleContextInterface $context ) {
 		$installer = $setup;
-
 		$installer->startSetup();
-
 		if(version_compare($context->getVersion(), '4.1.1', '<')) {
 			$installer->getConnection()->addColumn(
 				$installer->getTable( 'quote' ),
@@ -21,14 +19,9 @@ class UpgradeSchema implements UpgradeSchemaInterface
 					'nullable' => true,
 					'length' => '12,4',
 					'comment' => 'custom_checkbox_value'
-                    
-					
 				]
 			);
 		}
-
-
-
 		$installer->endSetup();
 	}
 }
