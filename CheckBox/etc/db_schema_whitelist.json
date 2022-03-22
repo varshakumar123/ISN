@@ -1,0 +1,14 @@
+{
+    "sales_order": {
+        "column": {
+            "magenest_custom_column": true,
+            "magenestcustomcolumn": true
+        }
+    },
+    "sales_order_grid": {
+        "column": {
+            "magenest_custom_column": true,
+            "magenestcustomcolumn": true
+        }
+    }
+}

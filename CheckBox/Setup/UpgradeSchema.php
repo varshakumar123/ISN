@@ -11,16 +11,18 @@ class UpgradeSchema implements UpgradeSchemaInterface
 		$installer = $setup;
 		$installer->startSetup();
 		if(version_compare($context->getVersion(), '4.1.1', '<')) {
+
 			$installer->getConnection()->addColumn(
 				$installer->getTable( 'quote' ),
 				'checkBoxValue',
 				[
-					'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+					'type' => \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
 					'nullable' => true,
 					'length' => '12,4',
 					'comment' => 'custom_checkbox_value'
 				]
 			);
+		
 		}
 		$installer->endSetup();
 	}
