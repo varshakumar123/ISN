@@ -1,0 +1,16 @@
+<div class="admin__page-section-title <?= $block->escapeHtmlAttr($block->getHeaderCssClass()) ?>">
+<?php $viewModel = $block->getData('view_model'); ?>      
+<span class="title"><?= $block->escapeHtml($viewModel->getCheckboxText()) ?></span>
+</div>
+
+<?php $isCustomPriceEnable=$viewModel->getCheckBoxEditPagevalue(); 
+if($isCustomPriceEnable=='Checked'){?>
+   <?php echo "CheckBox Status: ";?> <b style="color:green"><?php echo $isCustomPriceEnable; ?> </b>
+    <?php
+}
+else{?>
+     <?php echo "CheckBox Status: ";?>  <b style="color:red"><?php echo $isCustomPriceEnable; ?> </b>
+    <?php
+}
+?>
+

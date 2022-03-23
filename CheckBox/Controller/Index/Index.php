@@ -83,18 +83,15 @@ protected $orderRepository;
                 $order = $this->checkoutSession->getLastRealOrder();
                 $orderId=$order->getEntityId();
                 $a=$order->getIncrementId();
-                echo  $b=$a+1 .'<br>';
-               // echo  $c="0000000".$b .'<br>';
-                echo  $a."<br>";
-                echo $oid=$orderId+1 ."<br>";
+                
                 $quoteId=$this->checkoutSession->getQuote()->getId();
-                echo $quoteId."<br>"; 
+               // echo $quoteId."<br>"; 
                 $quote = $this->quoteRepository->get($quoteId); 
                 $quote->setData('checkBoxValue', 1); 
                 $this->quoteRepository->save($quote); 
 
                 $name=$this->gridFactory->create();
-                $studentobj=$name->load($a);
+                $studentobj=$name->load($orderId);
                 $msgg='Checked';
                 $studentobj->setMagenestcustomcolumn($msgg);
                 $studentobj->save();
