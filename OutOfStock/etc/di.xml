@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--  out of stock product at end of list -->
+    <type name="Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection">
+        <plugin name="ISN_OutOfStock::OutofstockEnd" 
+                type="ISN\OutOfStock\Plugin\Product\ProductList\Toolbar"/>
+    </type>
+    <!-- <type name="Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection">
+        <argument name="custom" 
+                type="ISN\OutOfStock\Plugin\Product\ProductList\Toolbar"/>
+    </type> -->
+</config>

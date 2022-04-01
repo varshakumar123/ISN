@@ -26,7 +26,24 @@ class LoginObserver implements \Magento\Framework\Event\ObserverInterface
          // echo $customerGroup=$this->_customerSession->getCustomer()->getGroupId();
 
     $customer = $observer->getEvent()->getCustomer();
-    $name= $customer->getName(); //Get customer name
+    $a=$customer->getData();
+    print_r($a);
+    $name= $customer->getName();
+    $names= $customer->getCustomSite();
+    $custom=$customer->getTest();
+    $grp=$customer->getGroup_id();
+    $this->logger->debug('grp.'.$grp);
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$customerSession = $objectManager->get('\Magento\Customer\Model\Session');
+$urlInterface = $objectManager->get('\Magento\Framework\UrlInterface');
+
+
+
+    $this->logger->debug('qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq.'.$custom);
+    $this->logger->debug('zzzzzzq.'.$names);
+
+     //Get customer name
     echo $customer->getGroupId(); //Get customer group and place your Logic here what you want to Do.
     echo "<script>javascript: alert('test msgbox')></script>";
     echo "Testing";
@@ -46,6 +63,7 @@ class LoginObserver implements \Magento\Framework\Event\ObserverInterface
     */
     $db->addData(['cust_name'=>$name,'cust_action'=>'Login','c_time'=>$date]);
     $db->save();
-    
-    }
+    exit;
+
+  }
 }

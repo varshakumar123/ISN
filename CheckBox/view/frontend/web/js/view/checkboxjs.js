@@ -16,7 +16,7 @@ define(
         if(simple_cookie=="true"){
             this._super()
             .observe({
-                isRegisterNewsletter: ko.observable(simple_cookie)                        
+                isRegisterNewsletter: ko.observable(simple_cookie)  //true                      
             });
         }
         else{
