@@ -49,7 +49,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                 )
                 ->setTemplateVars($emailTemplateVariables)
                 ->setFrom([
-                    'name' => 'Meetanshi',
+                    'name' => 'vk',
                     'email' => 'varshakumar12032@gmail.com',
                 ])
                 ->addTo('varshakumar12032@gmail.com', 'Your Name')
