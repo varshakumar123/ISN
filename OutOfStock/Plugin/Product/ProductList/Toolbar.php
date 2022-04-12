@@ -3,7 +3,6 @@
  * @author Rakesh Jesadiya
  * @package Rbj_OutOfStock
  */
-
 namespace ISN\OutOfStock\Plugin\Product\ProductList;
 
 class Toolbar
@@ -14,7 +13,8 @@ class Toolbar
      * @param bool $logQuery
      * @return array
      */
-    public function beforeLoad(\Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection $subject, $printQuery = false, $logQuery = false)
+    public function beforeLoad(\Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection $subject, 
+    $printQuery = false, $logQuery = false)
     {
         $orderBy = $subject->getSelect()->getPart(\Zend_Db_Select::ORDER);
         $outOfStockOrderBy = array('is_salable DESC');

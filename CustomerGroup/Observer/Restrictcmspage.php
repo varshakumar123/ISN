@@ -45,31 +45,22 @@ class Restrictcmspage implements ObserverInterface
         $HomePageUrl=$this->storeInfo->getStore()->getBaseUrl();
     
        /** @var \Magento\Customer\Controller\Account\LoginPost\Interceptor $controller_action */
-    $controller_action = $observer->getData( 'controller_action' );
-    $parameters = $controller_action->getRequest()->getParams();
-    $session = $this->customerSession;
+        $controller_action = $observer->getData( 'controller_action' );
+        $parameters = $controller_action->getRequest()->getParams();
+        $session = $this->customerSession;
 
-    if($StoreId==2){
+        if($StoreId==2){
         $CustomerGroup = $this->helper->getGroupId();//get group code from helper class
             
             if($CustomerGroup=="Wholesale")//For Wholesaler //restriction
             {
-
-
                 // setting an action flag to stop processing further hierarchy
                 $this->_actionFlag->set('', \Magento\Framework\App\Action\Action::FLAG_NO_DISPATCH, true);
-
-
-
                 /// redirecting back to its referred url
                 $observer->getControllerAction()->getResponse()->setRedirect( $HomePageUrl);
                 $session->setCustomerFormData($parameters);
-
             }
-           
-}
-
-
+        }
     return $this;
 }
 }

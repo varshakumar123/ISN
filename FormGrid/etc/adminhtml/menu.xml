@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+      
+
+        <add id="ISN_FormGrid::menu" 
+        title="User Registration" 
+        module="ISN_FormGrid" 
+        sortOrder="20" 
+        parent="ISN_Action::action" 
+        action="formgrid/index/index" 
+        resource="ISN_FormGrid::menu"/>
+    </menu>
+</config>

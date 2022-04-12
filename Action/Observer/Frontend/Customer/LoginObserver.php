@@ -63,7 +63,7 @@ $urlInterface = $objectManager->get('\Magento\Framework\UrlInterface');
     */
     $db->addData(['cust_name'=>$name,'cust_action'=>'Login','c_time'=>$date]);
     $db->save();
-    exit;
+   
 
   }
 }

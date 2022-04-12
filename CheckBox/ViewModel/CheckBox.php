@@ -16,6 +16,7 @@ class CheckBox implements ArgumentInterface
     */
     protected $scopeConfig;
     protected $gridFactory;
+    protected $quote;
     /**
      * @var CheckoutSession
      */
@@ -26,10 +27,12 @@ class CheckBox implements ArgumentInterface
     * @param Magento\Framework\App\Config\ScopeConfigInterface
     */
     public function __construct(ScopeConfigInterface $scopeConfig,
-    GridFactory $gridFactory,  CheckoutSession $checkoutSession)
+    GridFactory $gridFactory,  CheckoutSession $checkoutSession,
+    \Magento\Backend\Model\Session\Quote $quote)
     {
         $this->scopeConfig =$scopeConfig;
         $this->gridFactory = $gridFactory;
+        $this->quote=$quote;
         $this->checkoutSession = $checkoutSession;
     }
     public function  getCheckboxText(){
@@ -42,11 +45,8 @@ class CheckBox implements ArgumentInterface
     * @param Magento\Framework\App\Config\ScopeConfigInterface
     */
     public function getCheckBoxEditPagevalue()
-    {   $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $quote = $objectManager->create('\Magento\Backend\Model\Session\Quote');
-        $zz= $quote->getOrder()->getIncrementId();
-       
-
+    {   
+        $zz= $this->quote->getOrder()->getIncrementId();
         $name=$this->gridFactory->create();
         $studentobj=$name->load($zz);
         $cbep=$studentobj->getMagenestcustomcolumn();
