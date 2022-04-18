@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <update handle="checkout_cart_item_renderers"/>
+     <body>
+     <referenceBlock name="checkout.cart.crosssell">
+                <action method="setTemplate">
+                    <argument name="template" xsi:type="string">ISN_Badge::product/list/items.phtml</argument>
+                </action>
+                  <arguments>
+                      <argument name="view_model" xsi:type="object">ISN\Badge\ViewModel\MyModel</argument>
+                    </arguments>
+            </referenceBlock>
+
+            <!-- to add desktop banners -->
+      <!--   <referenceContainer name="checkout.cart.items" >
+            <container name="custom.block" htmlTag="div" htmlClass="custom-block">
+                <block class="Magento\Cms\Block\Block" name="my.custom.block" before="checkout.cart.items">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">mycustomblock</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer> -->
+      
+   </body>
+</page>
+

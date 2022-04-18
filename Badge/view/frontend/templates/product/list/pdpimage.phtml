@@ -1,0 +1,28 @@
+<?php 
+$viewModel = $block->getData('view_model'); 
+$a= $viewModel->getConfigValue(); 
+
+if( $a=='New'){?> 
+ <img src='<?= $this->getViewFileUrl('ISN_Badge::images/'.$a.'.png'); ?>'style="position: relative;
+  top: 80px;z-index: 100;width: 70px;height: 55px;" alt="image-icon">
+ <?php } 
+                                 
+else if( $a=='BestSeller'){?> 
+ <img src='<?= $this->getViewFileUrl('ISN_Badge::images/'.$a.'.png'); ?>'style="  position: relative;
+  top: 80px;z-index: 100;width: 70px;height: 55px;" alt="image-icon">
+
+<?php }                                
+
+else if ($a=='HotDeal'){?> 
+ 
+ <img src='<?= $this->getViewFileUrl('ISN_Badge::images/'.$a.'.png'); ?>'style="position: relative;
+  top: 80px;z-index: 100;width: 70px;height: 55px;" alt="image-icon"> 
+ <?php } 
+
+else if($a=='Sale'){?> 
+  
+ <img src='<?= $this->getViewFileUrl('ISN_Badge::images/'.$a.'.png'); ?>'style="position: relative;
+  top: 80px;z-index: 100;width: 70px;height: 55px;" alt="image-icon">
+ 
+ <?php }
+

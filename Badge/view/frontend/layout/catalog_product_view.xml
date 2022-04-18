@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="mage/gallery/gallery.css"/>
+    </head>
+    <update handle="catalog_product_opengraph" />
+    <update handle="page_calendar"/>
+    <body>
+<!--      
+        <referenceContainer name="content.aside">
+           
+         
+        </referenceContainer> -->
+          <referenceBlock name="catalog.product.related">
+                <action method="setTemplate">
+                    <argument name="template" xsi:type="string">ISN_Badge::product/list/items.phtml</argument>
+                </action>
+                  <arguments>
+                      <argument name="view_model" xsi:type="object">ISN\Badge\ViewModel\MyModel</argument>
+                    </arguments>
+            </referenceBlock>
+            <referenceBlock name="product.info.upsell">
+                <action method="setTemplate">
+                    <argument name="template" xsi:type="string">ISN_Badge::product/list/items.phtml</argument>
+                </action>
+                  <arguments>
+                      <argument name="view_model" xsi:type="object">ISN\Badge\ViewModel\MyModel</argument>
+                    </arguments>
+            </referenceBlock>
+            
+            <referenceContainer name="product.info.media">
+                <container name="pdpimages" htmlTag="div" htmlClass="pdpimages" before="skip_gallery_after.target">
+                  <block class="ISN\Badge\Block\Block" name="producst.infos.medias.images" template="ISN_Badge::product/list/pdpimage.phtml">
+                     <arguments>
+                      <argument name="view_model" xsi:type="object">ISN\Badge\ViewModel\MyModel</argument>
+                    </arguments>
+                    </block>
+                </container>
+            </referenceContainer>
+    </body>
+</page>
